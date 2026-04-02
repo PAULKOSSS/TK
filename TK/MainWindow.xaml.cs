@@ -33,7 +33,7 @@ namespace TK
         /// </summary>
         /// <param name="sender">Объект, инициировавший событие (кнопка).</param>
         /// <param name="e">Аргументы события.</param>
-        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        public void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             if (!double.TryParse(Number1TextBox.Text, out double num1) ||
                 !double.TryParse(Number2TextBox.Text, out double num2) ||
@@ -47,18 +47,42 @@ namespace TK
 
             if (MaxRadio.IsChecked == true)
             {
-                result = Math.Max(Math.Max(num1, num2), num3);
+                result = Max(num1, num2, num3);
                 ResultTextBlock.Text = $"Максимум: {result}";
             }
             else if (MinRadio.IsChecked == true)
             {
-                result = Math.Min(Math.Min(num1, num2), num3);
+                result = Min(num1, num2, num3);
                 ResultTextBlock.Text = $"Минимум: {result}";
             }
             else
             {
                 ResultTextBlock.Text = "Ошибка: выберите операцию";
             }
+        }
+
+        /// <summary>
+        /// Возвращает максимальное значение среди трёх вещественных чисел.
+        /// </summary>
+        /// <param name="num1">Первое вещественное число.</param>
+        /// <param name="num2">Второе вещественное число.</param>
+        /// <param name="num3">Третье вещественное число.</param>
+        /// <returns>Максимальное из трёх переданных чисел.</returns>
+        public double Max(double num1, double num2, double num3)
+        {
+            return Math.Max(Math.Max(num1, num2), num3);
+        }
+
+        /// <summary>
+        /// Возвращает минимальное значение среди трёх вещественных чисел.
+        /// </summary>
+        /// <param name="num1">Первое вещественное число.</param>
+        /// <param name="num2">Второе вещественное число.</param>
+        /// <param name="num3">Третье вещественное число.</param>
+        /// <returns>Минимальное из трёх переданных чисел.</returns>
+        public double Min(double num1, double num2, double num3)
+        {
+            return Math.Min(Math.Min(num1, num2), num3);
         }
     }
 }
