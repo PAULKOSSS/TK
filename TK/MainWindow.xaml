@@ -6,7 +6,42 @@
         xmlns:local="clr-namespace:TK"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Число 1:" VerticalAlignment="Center"/>
+        <TextBox x:Name="Number1TextBox" Grid.Row="0" Grid.Column="1" Margin="5" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Число 2:" VerticalAlignment="Center"/>
+        <TextBox x:Name="Number2TextBox" Grid.Row="1" Grid.Column="1" Margin="5" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Число 3:" VerticalAlignment="Center"/>
+        <TextBox x:Name="Number3TextBox" Grid.Row="2" Grid.Column="1" Margin="5" />
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="5">
+            <RadioButton x:Name="MaxRadio" Content="Максимум" GroupName="Operation" 
+                         IsChecked="True" Margin="10,0,20,0"/>
+            <RadioButton x:Name="MinRadio" Content="Минимум" GroupName="Operation" 
+                         Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <Button x:Name="CalculateButton" Grid.Row="4" Grid.ColumnSpan="2" 
+                Content="Вычислить" HorizontalAlignment="Center" Width="100" 
+                Margin="5" Click="CalculateButton_Click"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Результат:" VerticalAlignment="Center"/>
+        <TextBlock x:Name="ResultTextBlock" Grid.Row="5" Grid.Column="1" 
+                   VerticalAlignment="Center" Margin="5" FontWeight="Bold"/>
     </Grid>
 </Window>
